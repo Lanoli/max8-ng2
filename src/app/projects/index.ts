@@ -1,0 +1,6 @@
+export * from './project.model'
+export * from './projectcontentidentifier.model'
+export * from './categoryidentifier.model'
+export * from './project.service'
+export * from './projects.resolver'
+export * from './project-list.component'
