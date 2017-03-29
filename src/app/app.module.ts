@@ -7,6 +7,9 @@ import { ProjectService, ProjectListComponent } from './projects/index'
 import { HttpModule, JsonpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 import { appRoutes } from './routes'
+import { JQ_TOKEN } from './shared/jquery.service'
+
+declare let jQuery : Object
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { appRoutes } from './routes'
   ],
   providers: [
     ProjectService,
+    { provide: JQ_TOKEN, useValue: jQuery }
   ],
   bootstrap: [AppComponent]
 })
