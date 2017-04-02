@@ -1,5 +1,14 @@
-  <div *ngFor="let project of projects" class="panel paneldefault">
-    <div class="panel-heading">
-        {{project.name}}
-    </div>
+<div class="filter btn-group-xs">
+  <button class="btn btn-warning" *ngFor="let category of categories">
+    {{category.name}}
+  </button>
+</div>
+<div class="row">
+  <div *ngFor="let project of projects; let projectIndex = index">
+    <div class="clearfix visible-xs-block" *ngIf="projectIndex % 2 == 0"></div>
+    <div class="clearfix visible-sm-block" *ngIf="projectIndex % 4 == 0"></div>
+    <div class="clearfix visible-md-block" *ngIf="projectIndex % 6 == 0"></div>
+    <div class="clearfix visible-lg-block" *ngIf="projectIndex % 6 == 0"></div>
+    <project-thumbnail [project]="project"></project-thumbnail>
   </div>
+</div>

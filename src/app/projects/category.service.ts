@@ -1,33 +1,28 @@
 import { Injectable,EventEmitter } from '@angular/core'
 import { Http, Response } from '@angular/http'
-import { IProject } from './index'
+import { ICategory } from './category.model'
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class ProjectService {
-    private projectUrl = 'http://www.max8.be/api/Project.asp'
+export class CategoryService {
+    private categoriesUrl = 'http://www.max8.be/api/categories.asp'
 
     constructor(private http: Http) {
 
     }
 
-    getProject(id: number): Observable<IProject>{
-        return this.http.get(`${this.projectUrl}?id=${id}`)
-            .map(res => res.json());
-    }
-
-    getProjects(): Observable<IProject[]> {
-        return this.http.get(this.projectUrl)
+    getCategories(): Observable<ICategory[]> {
+        return this.http.get(this.categoriesUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
     private extractData(res: Response) {
         let body = res.json();
-        return body.projects || {};
+        return body.categories || {};
     }
 
     private handleError(error: Response | any) {

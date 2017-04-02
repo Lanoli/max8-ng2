@@ -3,7 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ProjectService, ProjectListComponent } from './projects/index'
+import { ProjectService, 
+  ProjectListComponent, 
+  ProjectThumbnailComponent,
+  CategoryService } from './projects/index'
+
 import { HttpModule, JsonpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 import { appRoutes } from './routes'
@@ -14,7 +18,8 @@ declare let jQuery : Object
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    ProjectThumbnailComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ declare let jQuery : Object
   ],
   providers: [
     ProjectService,
+    CategoryService,
     { provide: JQ_TOKEN, useValue: jQuery }
   ],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { ICategoryIdentifier, IProjectContentIdentifier } from './index'
+import { ICategory, IProjectContentIdentifier } from './index'
 
 export interface IProject
 {
@@ -6,8 +6,11 @@ export interface IProject
     createdOn?: Date
     name?: string
     order?: number
-    categories?: ICategoryIdentifier[]
+    categories?: ICategory[]
     projectContent?: IProjectContentIdentifier[]
-    introImage?: string
+    thumbnail1?: string
+    thumbnail2?: string
+    thumbnail3?: string
+    
 }
 
